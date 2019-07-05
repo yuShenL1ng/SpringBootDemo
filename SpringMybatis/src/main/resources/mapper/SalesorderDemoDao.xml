@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.SalesorderDemoDao">
+	<insert id="addSalesorderDemo" parameterType="com.example.demo.model.SalesorderDemo">
+	
+		INSERT 
+		INTO SalesorderDemo( 
+		 dName
+		  , dType
+		) 
+		VALUES ( 
+		 #{dName}
+		  , #{dType}
+		) 
+	
+	</insert>
+	
+	<select id="getSalesorderDemoList" parameterType="com.example.demo.model.ContractInfoDemo" resultType="com.example.demo.model.SalesorderDemo">
+	
+	select id,dName,dType from SalesorderDemo
+	
+	</select>
+	
+	<update id="updateSalesorderDemo" parameterType="com.example.demo.model.SalesorderDemo">
+			UPDATE SalesorderDemo 
+		SET
+		   dName = #{dName}
+		  , dType = #{dType}
+		WHERE
+		  id = #{id}
+	</update>
+	
+	<delete id="deleteSalesorderDemo" parameterType="com.example.demo.model.SalesorderDemo">
+		delete FROM SalesorderDemo  WHERE id = #{id}
+	</delete>
+</mapper>

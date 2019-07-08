@@ -51,13 +51,23 @@ public class LoginController {
 				info.setCode(userInfo.getUsername());
 //			}
 		} else {
-			//服务器遇到错误 500
 			info.setCode("error");
-			//账号或密码错误
             info.setMessage("账号或密码错误");
 		}
 		
 		return info;
+	}
+	
+	@RequestMapping("/insertUserInfo.action")
+	public @ResponseBody int insertUserInfo(HttpServletRequest request,@RequestBody Userinfo Info) throws IOException {
+		int result = loginService.insertUserInfo(Info);
+		return result;
+	}
+	
+	@RequestMapping("/updateUserInfo.action")
+	public @ResponseBody int updateUserInfo(HttpServletRequest request,@RequestBody Userinfo Info) throws IOException {
+		int result  = loginService.updateUserInfo(Info);
+		return result;
 	}
     
 }

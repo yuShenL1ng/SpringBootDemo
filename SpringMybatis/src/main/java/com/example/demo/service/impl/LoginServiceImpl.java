@@ -23,6 +23,18 @@ public class LoginServiceImpl implements LoginService{
 	public Userinfo login(Userinfo Info) {
 		return loginDao.login(Info);
 	}
+
+	@Override
+	public int insertUserInfo(Userinfo Info) {
+		// TODO Auto-generated method stub
+		return loginDao.insertUserInfo(Info);
+	}
+
+	@Override
+	public int updateUserInfo(Userinfo Info) {
+		// TODO Auto-generated method stub
+		return loginDao.updateUserInfo(Info);
+	}
 	
 	
 }

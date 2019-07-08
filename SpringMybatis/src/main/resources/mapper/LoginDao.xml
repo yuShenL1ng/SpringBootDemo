@@ -28,4 +28,56 @@
 		  </if>
 		order by ut.Id desc
 	</select>
+	
+	    	<!-- 用户注册 -->
+	<insert id="insertUserInfo" parameterType="com.example.demo.model.Userinfo">
+		INSERT INTO userinfo( 
+		    UserName
+		  , PassWord
+		  , RoleCode
+		  , Name
+		  , Age
+		  , Sex
+		  , Birthday
+		  , Address
+		  , Telephone
+		  , OtherNumbers
+		  , IsDel
+		  , Creater
+		  , CreaterDate
+		) 
+		VALUES ( 
+		    #{username}
+		  , #{password}
+		  , #{rolecode}
+		  , #{name}
+		  , #{age}
+		  , #{sex}
+		  , #{birthday}
+		  , #{address}
+		  , #{telephone}
+		  , #{othernumbers}
+		  , 0
+		  , #{username}
+		  , now()
+		)
+	</insert>
+	<!-- 修改用户信息 -->
+	<update id="updateUserInfo" parameterType="com.example.demo.model.Userinfo">
+		UPDATE userinfo 
+		SET
+		    PassWord = #{password}
+		  , RoleCode = #{rolecode}
+		  , Name = #{name}
+		  , Age = #{age}
+		  , Sex = #{sex}
+		  , Birthday = #{birthday}
+		  , Address = #{address}
+		  , Telephone = #{telephone}
+		  , OtherNumbers = #{othernumbers}
+		  , Reviser = #{username}
+		  , ReviserDate = now()
+		WHERE
+		  Id = #{id}
+	</update>
 </mapper>

@@ -40,22 +40,19 @@ public class LoginController {
 	 * @throws IOException 
 	 */
 	@RequestMapping("/login.action")
-	public @ResponseBody ResponseInfo login(HttpServletRequest request,@RequestBody Userinfo Info) throws IOException {
-		ResponseInfo info = new ResponseInfo();	
+	public @ResponseBody Userinfo login(HttpServletRequest request,@RequestBody Userinfo Info) throws IOException {
 		// 获取用户信息
 		Userinfo userInfo = loginService.login(Info);
 		if(userInfo != null) {
 				request.getSession().setAttribute("user", userInfo);
 		        Map<String, Object> maps = new HashMap<>();
 		        maps.put("token", userInfo.getId());
-				info.setCode(userInfo.getUsername());
+				return userInfo;
 //			}
 		} else {
-			info.setCode("error");
-            info.setMessage("账号或密码错误");
+			return null;
 		}
 		
-		return info;
 	}
 	
 	@RequestMapping("/insertUserInfo.action")

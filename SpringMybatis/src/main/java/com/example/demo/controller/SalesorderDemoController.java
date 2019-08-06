@@ -1,7 +1,5 @@
 package com.example.demo.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -39,6 +37,7 @@ public class SalesorderDemoController {
 	@ResponseBody
 	public List<SalesorderDemoDao> getSalesorderDemoList(HttpServletRequest request,@RequestBody SalesorderDemo salesorderDemo) {
 		
+		System.out.print("getSalesorderDemoList controller 执行");
 		return SalesorderDemoService.getSalesorderDemoList(salesorderDemo);
 	}
 	

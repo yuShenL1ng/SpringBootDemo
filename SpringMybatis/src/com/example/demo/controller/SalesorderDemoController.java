@@ -35,8 +35,9 @@ public class SalesorderDemoController {
 	
 	@RequestMapping("/getSalesorderDemoList.action")
 	@ResponseBody
-	public List<SalesorderDemoDao> getSalesorderDemoList(HttpServletRequest request,@RequestBody SalesorderDemo salesorderDemo) {
-		
+	public List<SalesorderDemoDao> getSalesorderDemoList(HttpServletRequest request) {
+		//,@RequestBody SalesorderDemo salesorderDemo
+		SalesorderDemo salesorderDemo = null;
 		System.out.print("getSalesorderDemoList controller 执行");
 		return SalesorderDemoService.getSalesorderDemoList(salesorderDemo);
 	}

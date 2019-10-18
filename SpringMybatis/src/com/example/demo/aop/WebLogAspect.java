@@ -95,12 +95,14 @@ public class WebLogAspect {
         //获取用户名
         HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
         Userinfo user = (Userinfo)request.getSession().getAttribute("user");
-        sysLog.setUsername(user.getUsername());
         //获取用户ip地址
         sysLog.setIp(request.getRemoteAddr());
 
-        //调用service保存SysLog实体类到数据库
-        operationalLogDao.addOperationalLog(sysLog);
+        if(user!=null ) {
+        	sysLog.setUsername(user.getUsername());
+        	//调用service保存SysLog实体类到数据库
+        	operationalLogDao.addOperationalLog(sysLog);
+        }
     }
 
 }

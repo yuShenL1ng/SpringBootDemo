@@ -70,6 +70,8 @@ public class Userinfo {
      * 创建时间
      */
     private String reviserdate;
+    
+    private String yzm;
 
     public String getAnotherName() {
 		return anotherName;
@@ -172,5 +174,11 @@ public class Userinfo {
 	}
 	public void setReviserdate(String reviserdate) {
 		this.reviserdate = reviserdate;
+	}
+	public String getYzm() {
+		return yzm;
+	}
+	public void setYzm(String yzm) {
+		this.yzm = yzm;
 	}
 }
